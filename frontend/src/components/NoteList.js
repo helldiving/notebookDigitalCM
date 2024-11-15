@@ -21,7 +21,9 @@ function NoteList() {
   }, []);
 
   const getNotes = async () => {
-    const response = await fetch("notebookdigitalcm-production.up.railway.app");
+    const response = await fetch(
+      "https://notebookdigitalcm-production.up.railway.app/api/notes"
+    );
     const data = await response.json();
     setNotes(data);
   };
@@ -29,16 +31,19 @@ function NoteList() {
   // submit input /set
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("notebookdigitalcm-production.up.railway.app", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: title,
-        description: description,
-      }),
-    });
+    await fetch(
+      "https://notebookdigitalcm-production.up.railway.app/api/notes",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: title,
+          description: description,
+        }),
+      }
+    );
 
     setTitle("");
     setDescription("");
