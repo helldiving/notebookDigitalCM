@@ -2,8 +2,11 @@ package com.digitalcm.notebook.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.digitalcm.notebook.model.Note;
 
+@Service
 public class NoteService {
 
     private List<Note> noteList = new ArrayList<>();
