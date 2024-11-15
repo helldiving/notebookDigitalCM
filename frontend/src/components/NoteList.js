@@ -21,7 +21,7 @@ function NoteList() {
   }, []);
 
   const getNotes = async () => {
-    const response = await fetch("http://localhost:8080/api/notes");
+    const response = await fetch("notebookdigitalcm-production.up.railway.app");
     const data = await response.json();
     setNotes(data);
   };
@@ -29,7 +29,7 @@ function NoteList() {
   // submit input /set
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("http://localhost:8080/api/notes", {
+    await fetch("notebookdigitalcm-production.up.railway.app", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
